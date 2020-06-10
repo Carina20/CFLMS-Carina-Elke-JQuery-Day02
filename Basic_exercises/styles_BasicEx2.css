@@ -1,0 +1,18 @@
+#container {
+	display: flex;
+	flex-flow: column;
+}
+#row1 {
+	display: flex;
+	flex-flow: row;
+}
+
+#row2 {
+	display: flex;
+	flex-flow: row;
+}
+
+#row3 {
+	display: flex;
+	flex-flow: row;
+}
