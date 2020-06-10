@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photo Album</title>
+    <script src="album.json"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="album.css" />
+  </head>
+  <body>
+    <header>
+      <div id="top">
+        <div id="logo">
+          <img src="logo.png" alt="logo" />
+        </div>
+        <!-- logo -->
+
+        <div id="banner">
+          <img src="banner.png" alt="logo" />
+        </div>
+        <!-- banner -->
+      </div>
+      <!-- TOP -->
+
+      <nav id="nav">
+        <ul>
+          <li>
+            <a href="#Navigation"></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>Click on the images to see how old your family members and friends are!</h1>
+
+      <div id="wrapper"></div>
+    </main>
+    <script>
+      let people = JSON.parse(array);
+    </script>
+    <script>
+      $(document).ready(function(){
+      for (let i=0;i<people.length;i++){
+      $("#wrapper").prepend($(`<div class="container"><img age="${people[i].age}" name="${people[i].name}" src="${people[i].img}"><div><p>${people[i].name}</p></div></div>`));
+      }
+    
+      $("img").click(function() {
+      let val = $(this).attr("age");
+      let val1 = $(this).attr("name");
+      // console.log(val)
+      // $(this).parent().prepend(`<p style="color:green;z-index: 999">${val}</p>`);
+      $(this).parent().append(`<div style="background-color:orange">${val1}, ${val}</div>`)
+    
+      })
+    
+    })
+      
+    </script>
+  </body>
+</html>
+
+<!-- When one of the family members is clicked on,
+more information should be displayed about them.
+You can add additional information to your JSON file, e.g. hobbies, favourite family member etc. 
+You can also implement the functionality of removing or hiding a family member or friend. -->
